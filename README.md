@@ -58,9 +58,10 @@
   - вывод команды чтения файла (`tail -f <имя общего файла>`)
 
 #
-[containers-data-exchange.yaml](containers-data-exchange.yaml)
-<img src = "img/1-1.png" width = 60%>  
-<img src = "img/1-2.png" width = 60%>  
+Манифест.
+[containers-data-exchange.yaml](containers-data-exchange.yaml)  
+<img src = "img/1-1.png" width = 60%>    
+<img src = "img/1-2.png" width = 60%>    
 
 ------
 
@@ -85,9 +86,9 @@
   - объяснение наблюдаемого поведения ресурсов в двух последних шагах.
 
 #
-1-2. Создадим директорию на хосте.
-`mkdir -p /data/shared-volume`
-Создвдим деплой.
+1-2. Создадим директорию на хосте.  
+`mkdir -p /data/shared-volume`  
+Создадим деплой.  
 
 <img src = "img/2-0.png" width = 60%>  
 
@@ -96,7 +97,7 @@
 <img src = "img/2-1.png" width = 60%>  
 <img src = "img/2-2.png" width = 60%>  
 
-3. Проверь чтение логов и формирование файла в volume.  
+3. Проверим чтение логов и формирование файла в volume.  
 `kubectl logs -f deployment/data-exchange-pvc -c multitool-reader`  
 `kubectl exec -it deployment/data-exchange-pvc -c multitool-reader -- tail -f /data/data.txt`
 
@@ -149,7 +150,7 @@
 
 3. Проверим чтение файла.
 
-<img src = "img/3-2.png" width = 60%>
+<img src =  "img/3-2.png" width = 60%>
 
 
 Манифест [sc.yaml](sc.yaml)
