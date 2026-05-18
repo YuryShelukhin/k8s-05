@@ -84,7 +84,46 @@
 - Описания:
   - объяснение наблюдаемого поведения ресурсов в двух последних шагах.
 
+#
+1-2. Создадим директорию на хосте.
+`mkdir -p /data/shared-volume`
+Создвдим деплой.
+
+<img src = "img/2-0.png" width = 60%>  
+
+Проверим статус pv, pvc и pod.
+
+<img src = "img/2-1.png" width = 60%>  
+<img src = "img/2-2.png" width = 60%>  
+
+3. Проверь чтение логов и формирование файла в volume.  
+`kubectl logs -f deployment/data-exchange-pvc -c multitool-reader`  
+`kubectl exec -it deployment/data-exchange-pvc -c multitool-reader -- tail -f /data/data.txt`
+
+<img src = "img/2-3.png" width = 60%>  
+
+4. Удалим Deployment и PVC.
+
+<img src = "img/2-4.png" width = 60%>  
+
+Убедимся, что PV находится в статусе Released.
+Политика persistentVolumeReclaimPolicy: Retain означает, что PV не удаляется автоматически.
+
+5. Проверим файл на локальном диске.
+
+<img src = "img/2-5-1.png" width = 60%>  
+
+Удалим pv вручную и снова проверим файл.
+
+<img src = "img/2-5-2.png" width = 60%>  
+
+Данные на диске хоста Kubernetes не удаляет. 
+
+[pv-pvc.yaml](pv-pv.yml)
+
 ------
+
+
 
 ## Задание 3. StorageClass
 ### Задача
